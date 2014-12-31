@@ -7,17 +7,17 @@ OPTS="-Dcustom.opt=value"
 
 case "$1" in
   start)
-    start-stop-daemon --start --quiet --oknodo -b -m -p $PIDFILE -c release --exec $DAEMON -- $OPTS
+    start-stop-daemon --start --quiet --oknodo -b -m -p $PIDFILE -c user --exec $DAEMON -- $OPTS
     ;;
   stop)
     start-stop-daemon --stop --quiet --oknodo -p $PIDFILE
-        ;;
+    ;;
   restart)
     $0 stop && sleep 3 && $0 start
     ;;
 status)
-        status_of_proc $DAEMON "Service Name"
-        ;;
+    status_of_proc $DAEMON "Service Name"
+    ;;
   *)
     echo "Usage: $N {start|stop|restart|status}" >&2
     exit 1
