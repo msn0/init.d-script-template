@@ -15,7 +15,7 @@ case "$1" in
   restart)
     $0 stop && sleep 3 && $0 start
     ;;
-status)
+  status)
     status_of_proc $DAEMON "Service Name"
     ;;
   *)
@@ -25,4 +25,3 @@ status)
 esac
 
 exit 0
-
